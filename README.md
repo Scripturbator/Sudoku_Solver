@@ -10,53 +10,43 @@ Text Editor: Pythonista iOS (Pyhon 2.7)
 1.0 Notes
 ---------
 
-  -First time playing with classes (super fun!)
-  -Figured out that best way to solve is to find out what 'could'
-   go in to a cell (by mistake if we're being honest here). If the board
-   is correct, you will always find at least one cell with only one
-   possible value. You then set it to that value and iterate over the
-   entire board again and find another single value cell. 
-  -Haven't done a lot of testing so let me know if theres issues
-  -I included a sample puzzle to test the class directly. 
+*First time playing with classes (super fun!)
+*Figured out that best way to solve is to find out what 'could' go in to a cell (by mistake if we're being honest here). If the board is correct, you will always find at least one cell with only one possible value. You then set it to that value and iterate over the entire board again and find another single value cell. 
+*Haven't done a lot of testing so let me know if theres issues
+*I included a sample puzzle to test the class directly. 
 
 1.1 Notes
 ---------
 
-  -Prettied up code
-  -Removed stat finding code. It was helpful in the learning process
-   but ultimately clogs up the code, making it hard to follow. 
-  -I should also note that I did this without researching anything but
-   coding. It took a while but was a gratifying experience to use
-   scripting as a method of problem solving. 
-  -Show board before and after solving
+*Prettied up code
+*Removed stat finding code. It was helpful in the learning process but ultimately clogs up the code, making it hard to follow. 
+*I should also note that I did this without researching anything but coding. It took a while but was a gratifying experience to use scripting as a method of problem solving. 
+*Show board before and after solving
 
 Process
 -------
 
--First I split up the board by section:
-  
-  -------------
+1. First I split up the board by section:
+  |Section 1|Section 2|Section 3|
+  |---|---|---|
   | 1 | 2 | 3 |
-  -------------
   | 4 | 5 | 6 |
-  -------------
   | 7 | 8 | 9 |
-  -------------      
   
 -Then within each section, by cell:
-  -------------------
+  |Section 1|Section 2|Section 3|
+  |---|---|---|
   | 123 | 123 | 123 |
   | 456 | 456 | 456 |
   | 789 | 789 | 789 |
-  -------------------
+  |---|---|---|
   | 123 | 123 | 123 |
   | 456 | 456 | 456 |
   | 789 | 789 | 789 |
-  -------------------
+  |---|---|---|
   | 123 | 123 | 123 |
   | 456 | 456 | 456 |
   | 789 | 789 | 789 |
-  -------------------
   
   This became the main class variable as a dictionary of dictionaries. 
   
