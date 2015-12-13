@@ -333,12 +333,6 @@ class Sudoku(object):
             sections[section][cell] = int(val)
 
         self.__updateBoard(sections)
-
-        # If first iteration, print board
-        if not self.iterations:
-            print ("Initial entry:")
-            print(self)
-
         self.__attemptSolve()
 
     def __updateBoard(self, sections="", rtn_vals=False):
@@ -364,9 +358,6 @@ class Sudoku(object):
                     self.setVal(val)
                     return
         self.iterations = 0
-
-        print("Solution")
-        print(self)
 
     def __getSectAndCell(self, x, y):
         """
@@ -401,23 +392,21 @@ class Sudoku(object):
         rtn_text = ((" " * l_marg) + in_text + (" " * r_marg))
         return rtn_text
 
-    def __str__(self):
+    @property
+    def solution(self):
         'Display board'
-        width = self.width
-        rows = self.rows
-        maybes = self.maybes
-        dash_row = (("|" + "-" * (3 * width)) * 3) + "|\n"
-        mid_row = (("|" + " " * (3 * width)) * 3) + "|\n"
-        top_row = ("-" * ((width * 9) + 4)) + "\n"
+        dash_row = (("|" + "-" * (3 * self.width)) * 3) + "|\n"
+        mid_row = (("|" + " " * (3 * self.width)) * 3) + "|\n"
+        top_row = ("-" * ((self.width * 9) + 4)) + "\n"
         row_print = top_row
-        for row in sorted(rows):
+        for row in sorted(self.rows):
             # Ex: rows[row]={1: 1, 2: 2, 3: 3, 4: 1, 5: 2, 6: 3, 7: 1, 8: 2, 9: 3}
-            cols = rows[row]
+            cols = self.rows[row]
             row_print += "|"
             for col in sorted(cols):
                 val = str(cols[col])
                 if val == " ":
-                    val = "(" + "".join(map(str, maybes[row][col])) + ")"
+                    val = "(" + "".join(map(str, self.maybes[row][col])) + ")"
                 if col % 3 == 0:
                     row_print += self.__center_text(str(val)) + "|"
                     if col == 9:
@@ -438,7 +427,7 @@ if __name__ == '__main__':
     testme = Sudoku()
 
     # Cant't be solved logically
-    print ("This can't be solved:")
+    print("This can't be solved:")
     set_vals = [119, 147, 153, 185, 212, 248, 266, 277, 284, 344,
                 437, 452, 476, 488, 499, 616, 651, 694, 765, 817,
                 849, 925, 978, 997]
@@ -449,9 +438,10 @@ if __name__ == '__main__':
     testme = Sudoku()
 
     # Can be solved
-    print ("This can be solved:")
+    print("This can be solved:")
     set_vals = [119, 147, 153, 185, 212, 235, 248, 266, 277, 284,
                 331, 344, 437, 452, 476, 488, 499, 616, 651, 694,
                 765, 817, 849, 873, 925, 978, 997]
 
     testme.setVal(set_vals)
+    print testme.solution
