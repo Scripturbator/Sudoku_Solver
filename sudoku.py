@@ -1,4 +1,7 @@
-class sudoku:
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+class Sudoku(object):
     """SUDOKU SOLVER
     
     Version 1.1
@@ -428,21 +431,23 @@ class sudoku:
                 else:
                     row_print += self.__ctrTxt(str(val))
         return row_print
-      
-# Test class
-testme = sudoku()
 
-# Cant't be solved logically
-print ("This can't be solved:")
-set_vals = [119, 147, 153, 185, 212, 248, 266, 277, 284, 344, 437, 452, 476, 488, 499, 616, 651, 694, 765, 817, 849, 925, 978, 997]
 
-testme.setVal(set_vals)
+if __name__ == '__main__':
+    # Test class
+    testme = Sudoku()
 
-# Re-test class
-testme = sudoku()
+    # Cant't be solved logically
+    print ("This can't be solved:")
+    set_vals = [119, 147, 153, 185, 212, 248, 266, 277, 284, 344, 437, 452, 476, 488, 499, 616, 651, 694, 765, 817, 849, 925, 978, 997]
 
-# Can be solved
-print ("This can be solved:")
-set_vals = [119, 147, 153, 185, 212, 235, 248, 266, 277, 284, 331, 344, 437, 452, 476, 488, 499, 616, 651, 694, 765, 817, 849, 873, 925, 978, 997]
+    testme.setVal(set_vals)
 
-testme.setVal(set_vals)
+    # Re-test class
+    testme = Sudoku()
+
+    # Can be solved
+    print ("This can be solved:")
+    set_vals = [119, 147, 153, 185, 212, 235, 248, 266, 277, 284, 331, 344, 437, 452, 476, 488, 499, 616, 651, 694, 765, 817, 849, 873, 925, 978, 997]
+
+    testme.setVal(set_vals)

@@ -82,9 +82,9 @@ How to use
 * Set a variable to the sudoku class  
 
 ```python
-from sudoku_solver import sudoku  
+from sudoku import Sudoku  
     
-myBoard = sudoku()
+myBoard = Sudoku()
 ```  
 
 * Enter cell values as a 3-digit integer representing: 
@@ -97,10 +97,10 @@ They can be inserted one at a time or as a list.
   
 ```python
 # Call class
-from sudoku_solver import sudoku
+from sudoku import Sudoku
 
 # Make blank board
-myBoard = sudoku()
+myBoard = Sudoku()
 
 # Set known values on board one at a time to see progress
 myBoard.setVal(119) #Set (row-1, col 1) to 9
@@ -150,10 +150,10 @@ previous one.
 
 ```python
 # Call class
-from sudoku_solver import sudoku
+from sudoku import Sudoku
 
 # Make blank board
-myBoard = sudoku()
+myBoard = Sudoku()
 
 # Enter all values and view solution
 set_vals = [119, 147, 153, 185, 212, 248, 266, 277, 284, 344, \
