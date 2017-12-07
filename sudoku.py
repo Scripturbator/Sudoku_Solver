@@ -433,6 +433,7 @@ if __name__ == '__main__':
                 849, 925, 978, 997]
 
     testme.setVal(set_vals)
+    print testme.solution
 
     # Re-test class
     testme = Sudoku()
